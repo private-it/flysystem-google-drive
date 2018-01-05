@@ -1,0 +1,26 @@
+{
+  "name": "private-it/flysystem-google-drive",
+  "description": "FlySystem adapter for Google Drive (work with path)",
+  "keywords": [
+    "laravel",
+    "flysystem",
+    "google drive"
+  ],
+  "license": "MIT",
+  "type": "flysystem-extension",
+  "authors": [
+    {
+      "name": "Igor Sapegin",
+      "email": "sapegin.in@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "PrivateIT\\FlySystem\\": "src"
+    }
+  },
+  "require": {
+    "nao-pon/flysystem-google-drive": "^1.1",
+    "illuminate/filesystem": "^5.5"
+  }
+}
