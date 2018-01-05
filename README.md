@@ -53,3 +53,35 @@ Add ServiceProvider to `config/app.php`
     ...
 ]
 ```
+
+Configuration google drive `config/filesystems.php`
+
+```php
+    'disks' => [
+...
+        'googleDrive' => [
+            'driver' => 'googleDrive',
+            'clientId' => env('GOOGLE_DRIVE_CLIENT_ID'),
+            'clientSecret' => env('GOOGLE_DRIVE_CLIENT_SECRET'),
+            'refreshToken' => env('GOOGLE_DRIVE_REFRESH_TOKEN'),
+            'folderId' => env('GOOGLE_DRIVE_FOLDER_ID'),
+            'sheetId' => env('GOOGLE_DRIVE_PATH_MANAGER_SHEET_ID'),
+        ],
+...
+    ],
+```
+
+Usage:
+
+```php
+        $disk = \Storage::disk('googleDrive');
+        $adapter = $disk->getDriver()->getAdapter();
+
+        $dir = 'test/222/333';
+        $disk->makeDirectory($dir);
+        $fileName = $dir . '/new-file-1.txt';
+
+        var_dump($disk->put($fileName, '4444444444'));
+        var_dump($disk->deleteDir($dir));
+        var_dump($adapter->getUrl($fileName))
+```
