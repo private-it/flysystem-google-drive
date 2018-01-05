@@ -19,7 +19,22 @@ composer require private-it/flysystem-google-drive:dev-master
 * [Getting your Root Folder ID](https://github.com/ivanvermeyen/laravel-google-drive-demo/blob/master/README/3-getting-your-root-folder-id.md)
 
 
-**sheetId** - file id of "Google Sheets" document
+Config params:
+
+```php
+[
+    'clientId' => 'xxxxxxxxxxx.apps.googleusercontent.com',
+    'clientSecret' => 'xxxxxxxxxxx',
+    'refreshToken' => 'xxxxxxxxxxx',
+    'folderId' => 'xxxxxxxxxxx',
+    'sheetId' => 'xxxxxxxxxxx',
+];
+```
+
+**folderId** - uses as root folder for upload/read.
+
+**sheetId** - file id of "Google Sheets" document. Uses for save path-fileId. This document must be shared for public read.
+
 
 ## Usage example
 
