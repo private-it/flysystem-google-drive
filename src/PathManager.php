@@ -3,7 +3,7 @@
  * PathManager.php.
  */
 
-namespace PrivateIT\FlySystem;
+namespace PrivateIT\FlySystem\GoogleDrive;
 
 
 interface PathManager

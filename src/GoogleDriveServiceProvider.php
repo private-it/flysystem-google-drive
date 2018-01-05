@@ -1,6 +1,6 @@
 <?php
 
-namespace PrivateIT\FlySystem;
+namespace PrivateIT\FlySystem\GoogleDrive;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;

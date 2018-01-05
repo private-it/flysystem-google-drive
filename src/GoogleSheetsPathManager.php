@@ -3,13 +3,13 @@
  * LocalPathManager.php.
  */
 
-namespace PrivateIT\FlySystem;
+namespace PrivateIT\FlySystem\GoogleDrive;
 
 use Illuminate\Filesystem\FilesystemAdapter;
 
 /**
  * Class LocalPathManager
- * @package PrivateIT\FlySystem
+ * @package PrivateIT\FlySystem\GoogleDrive
  */
 class GoogleSheetsPathManager implements PathManager
 {

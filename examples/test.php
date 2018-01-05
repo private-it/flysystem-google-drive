@@ -1,8 +1,8 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
-use PrivateIT\FlySystem\GoogleSheetsPathManager;
-use PrivateIT\FlySystem\GoogleDriveAdapter;
+use PrivateIT\FlySystem\GoogleDrive\GoogleSheetsPathManager;
+use PrivateIT\FlySystem\GoogleDrive\GoogleDriveAdapter;
 
 use Illuminate\Filesystem\FilesystemAdapter;
 use League\Flysystem\Filesystem as Flysystem;

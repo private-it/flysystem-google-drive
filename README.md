@@ -41,7 +41,7 @@ php examples/test.php
 Set binding for default PathManager in file `bootstrap/app.php`
 
 ```php
-$app->bind(\PrivateIT\FlySystem\PathManager::class, \PrivateIT\FlySystem\GoogleSheetsPathManager::class);
+$app->bind(\PrivateIT\FlySystem\GoogleDrive\PathManager::class, \PrivateIT\FlySystem\GoogleDrive\GoogleSheetsPathManager::class);
 ```
 
 Add ServiceProvider to `config/app.php`
@@ -49,7 +49,7 @@ Add ServiceProvider to `config/app.php`
 ```php
 'providers' => [
     ...
-    PrivateIT\FlySystem\GoogleDriveServiceProvider::class
+    PrivateIT\FlySystem\GoogleDrive\GoogleDriveServiceProvider::class
     ...
 ]
 ```

@@ -3,14 +3,14 @@
  * GoogleDriveAdapter.php.
  */
 
-namespace PrivateIT\FlySystem;
+namespace PrivateIT\FlySystem\GoogleDrive;
 
 use Hypweb\Flysystem\GoogleDrive\GoogleDriveAdapter as OriginGoogleDriveAdapter;
 use League\Flysystem\Config;
 
 /**
  * Class GoogleDriveAdapter
- * @package PrivateIT\FlySystem
+ * @package PrivateIT\FlySystem\GoogleDrive
  */
 class GoogleDriveAdapter extends OriginGoogleDriveAdapter
 {
