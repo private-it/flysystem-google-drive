@@ -89,14 +89,14 @@ Configuration google drive `config/filesystems.php`
 Usage:
 
 ```php
-        $disk = \Storage::disk('googleDrive');
-        $adapter = $disk->getDriver()->getAdapter();
+$disk = \Storage::disk('googleDrive');
+$adapter = $disk->getDriver()->getAdapter();
 
-        $dir = 'test/222/333';
-        $disk->makeDirectory($dir);
-        $fileName = $dir . '/new-file-1.txt';
+$dir = 'test/sub1/sub2';
+$fileName = 'test/sub1/sub2/new-file-1.txt';
 
-        var_dump($disk->put($fileName, '4444444444'));
-        var_dump($disk->deleteDir($dir));
-        var_dump($adapter->getUrl($fileName))
+var_dump($disk->makeDirectory($dir));
+var_dump($disk->put($fileName, 'test content'));
+var_dump($adapter->getUrl($fileName))
+var_dump($disk->deleteDir($dir));
 ```
