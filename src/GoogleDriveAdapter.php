@@ -29,18 +29,21 @@ class GoogleDriveAdapter extends OriginGoogleDriveAdapter
 
     /**
      * @param $path
+     *
      * @return string
      */
     public function replacePath($path)
     {
-        if ($this->pathManager->readPath($path)) return $this->pathManager->readPath($path);
+        if ($this->pathManager->readPath($path)) {
+            return $this->pathManager->readPath($path);
+        }
 
-        $paths = explode('/', $path);
+        $paths    = explode('/', $path);
         $fileName = array_pop($paths);
 
         if ($fileName) {
             $fileId = $this->pathManager->readPath($path);
-            $path = $fileName;
+            $path   = $fileName;
             if ($fileId) {
                 $path = $fileId;
             }
@@ -52,8 +55,9 @@ class GoogleDriveAdapter extends OriginGoogleDriveAdapter
             if ($dirId) {
                 $dirId = explode('/', $dirId);
                 $dirId = array_pop($dirId);
-                $path = $dirId . '/' . $path;
-            } else {
+                $path  = $dirId . '/' . $path;
+            }
+            else {
                 $path = $dirPath . '/' . $path;
             }
         }
@@ -64,12 +68,13 @@ class GoogleDriveAdapter extends OriginGoogleDriveAdapter
     /**
      * @param $path
      * @param $results
+     *
      * @return array|false
      */
     public function processPath($path, $results)
     {
         if ($results && isset($results['path'])) {
-            if (!$this->pathManager->readPath($path)) {
+            if ( ! $this->pathManager->readPath($path)) {
                 $fileId = explode('/', $results['path']);
                 $fileId = array_pop($fileId);
                 if ($path != $fileId) {
@@ -77,6 +82,7 @@ class GoogleDriveAdapter extends OriginGoogleDriveAdapter
                 }
             }
         }
+
         return $results;
 
     }
@@ -86,6 +92,10 @@ class GoogleDriveAdapter extends OriginGoogleDriveAdapter
      */
     public function upload($path, $contents, Config $config)
     {
+        if ( ! $this->has(dirname($path))) {
+            $this->createDir(dirname($path), $config);
+        }
+
         return $this->processPath($path, parent::upload($this->replacePath($path), $contents, $config));
     }
 
@@ -97,6 +107,7 @@ class GoogleDriveAdapter extends OriginGoogleDriveAdapter
         if (parent::delete($this->replacePath($path))) {
             return $this->pathManager->removePath($path);
         }
+
         return false;
     }
 
@@ -116,6 +127,7 @@ class GoogleDriveAdapter extends OriginGoogleDriveAdapter
         while (sizeof($target = explode('/', $this->replacePath($path))) > 2) {
             $this->createDir($target[0] . '/' . $target[1], $config);
         }
+
         return $this->processPath($path, parent::createDir($this->replacePath($path), $config));
     }
 
@@ -148,7 +160,7 @@ class GoogleDriveAdapter extends OriginGoogleDriveAdapter
      */
     public function listContents($dirname = '', $recursive = false)
     {
-        return parent::listContents($dirname, $recursive);
+        return parent::listContents($this->replacePath($dirname), $recursive);
     }
 
     /**
