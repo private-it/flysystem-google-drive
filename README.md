@@ -53,21 +53,6 @@ php examples/test.php
 
 ## Usage with Laravel
 
-Set binding for default PathManager in file `bootstrap/app.php`
-
-```php
-$app->bind(\PrivateIT\FlySystem\GoogleDrive\PathManager::class, \PrivateIT\FlySystem\GoogleDrive\GoogleSheetsPathManager::class);
-```
-
-Add ServiceProvider to `config/app.php`
-
-```php
-'providers' => [
-    ...
-    PrivateIT\FlySystem\GoogleDrive\GoogleDriveServiceProvider::class
-    ...
-]
-```
 
 Configuration google drive `config/filesystems.php`
 
@@ -85,6 +70,23 @@ Configuration google drive `config/filesystems.php`
 ...
     ],
 ```
+
+[Laravel v4] Add ServiceProvider to `config/app.php`
+
+```php
+'providers' => [
+    ...
+    PrivateIT\FlySystem\GoogleDrive\GoogleDriveServiceProvider::class
+    ...
+]
+```
+
+*For custom `PathManager`* you can set binding in file `bootstrap/app.php`
+
+```php
+$app->bind(\PrivateIT\FlySystem\GoogleDrive\PathManager::class, \PrivateIT\FlySystem\GoogleDrive\GoogleSheetsPathManager::class);
+```
+
 
 Usage:
 
