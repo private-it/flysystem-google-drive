@@ -22,5 +22,12 @@
   "require": {
     "nao-pon/flysystem-google-drive": "^1.1",
     "illuminate/filesystem": "^5.5"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "PrivateIT\\FlySystem\\GoogleDrive\\GoogleDriveServiceProvider"
+      ]
+    }
   }
 }
