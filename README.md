@@ -99,6 +99,6 @@ $fileName = 'test/sub1/sub2/new-file-1.txt';
 
 var_dump($disk->makeDirectory($dir));
 var_dump($disk->put($fileName, 'test content'));
-var_dump($adapter->getUrl($fileName))
+var_dump($adapter->getUrl($fileName));
 var_dump($disk->deleteDir($dir));
 ```
