@@ -21,7 +21,7 @@
   },
   "require": {
     "nao-pon/flysystem-google-drive": "^1.1",
-    "illuminate/filesystem": "^6.0"
+    "illuminate/filesystem": "^7.0"
   },
   "extra": {
     "laravel": {
