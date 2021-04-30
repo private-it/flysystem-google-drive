@@ -5,6 +5,7 @@
 
 namespace PrivateIT\FlySystem\GoogleDrive;
 
+use \Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Filesystem\FilesystemAdapter;
 
 /**
@@ -38,7 +39,7 @@ class GoogleSheetsPathManager implements PathManager
      */
     public $cache = [];
 
-    public function __construct(\Google_Service_Sheets $service, $spreadsheetId, FilesystemAdapter $storage)
+    public function __construct(\Google_Service_Sheets $service, $spreadsheetId, Filesystem $storage)
     {
         $this->service = $service;
         $this->spreadsheetId = $spreadsheetId;

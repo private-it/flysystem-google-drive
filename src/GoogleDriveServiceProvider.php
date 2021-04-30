@@ -54,7 +54,7 @@ class GoogleDriveServiceProvider extends ServiceProvider
             $gdAdapter = new GoogleDriveAdapter($gdService, $config['folderId']);
             $gdAdapter->setPathManager($pathManager);
 
-            return new \League\Flysystem\Filesystem($gdAdapter);
+            return new LaravelFilesystem($gdAdapter);
         });
     }
 
