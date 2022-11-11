@@ -2,6 +2,7 @@
 
 namespace PrivateIT\FlySystem\GoogleDrive;
 
+use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use Google_Client;
@@ -53,8 +54,12 @@ class GoogleDriveServiceProvider extends ServiceProvider
             $gdService = new \Google_Service_Drive($client);
             $gdAdapter = new GoogleDriveAdapter($gdService, $config['folderId']);
             $gdAdapter->setPathManager($pathManager);
-
-            return new \League\Flysystem\Filesystem($gdAdapter);
+            
+            return new FilesystemAdapter(
+                new \League\Flysystem\Filesystem($gdAdapter),
+                $gdAdapter,
+                $config
+            );
         });
     }
 
